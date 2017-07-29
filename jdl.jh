@@ -1,0 +1,256 @@
+entity BaseTerm{
+	termCode String,
+    termName String,
+    termStatus String,
+    termStartdate ZonedDateTime,
+    termEnddate ZonedDateTime
+}
+
+entity BaseDepartment {
+	depCode String,
+	depName String,
+    depType String,
+    depShotName String,
+    depSort Integer
+}
+
+entity BaseTeacher {
+	teacherCode String,
+    teacherName String,
+    teacherTitle String,
+    teacherType String,
+    teacherStatus String
+}
+
+entity BaseMajor {
+	majorCode String,
+    majorName String,
+    majorStatus String
+    
+}
+
+entity BaseCourse {
+	courseCode String,
+    courseName String,
+    courseType String,
+    courseDesc String,
+    courseStatus String
+    
+}
+entity CourseVersion {
+     courseCount Integer,
+     courseDoCount Integer,
+     courseLearnCount Integer,
+     courseGrade Float,
+     courseDesc String,
+     courseBook String,
+     courseStatus String
+     
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity CourseGroup {
+	groupName String,
+    groupSort Integer,
+    groupType String
+}
+
+
+entity CourseGroupItem {
+
+}
+
+entity CourseTree {
+	treeDesc String
+}
+
+entity BaseMajorCourse{
+	termNo Integer,
+    courseMemo String
+}
+
+relationship ManyToOne{
+	BaseMajorCourse{course} to CourseVersion,
+    BaseMajorCourse{traning} to MajorTraning
+}
+
+entity BaseClasses{
+	termYear String,
+    classNo String,
+    className String,
+    isOver String
+}
+
+relationship ManyToOne{
+	BaseClasses{major} to BaseMajor
+}
+
+entity BaseTeachTask{
+	termNo String
+}
+relationship ManyToOne{
+	BaseTeachTask{class} to BaseClasses,
+    BaseTeachTask{course} to BaseMajorCourse,
+    BaseTeachTask{teacher} to BaseTeacher
+}
+
+entity BaseResourceType{
+	resourceTypeName String
+}
+
+entity BaseResource{
+	resourceName String,
+    resourceUpdatetime ZonedDateTime,
+    resourceUrl String,
+    resourceSize Integer,
+    resourceMD5 String,
+    viewCount Long
+}
+relationship ManyToOne{
+	BaseResource{resourceType} to BaseResourceType
+}
+entity TeacherResource {
+	isPrivate String,
+    addTime ZonedDateTime,
+    title String
+}
+
+relationship ManyToOne{
+	TeacherResource{teacher} to BaseTeacher,
+	TeacherResource{resource} to BaseResource
+}
+
+entity CourseResource {
+	isPrivate String,
+    addTime ZonedDateTime,
+    title String
+}
+
+relationship ManyToOne{
+	CourseResource{teacher} to BaseTeacher,
+	CourseResource{resource} to BaseResource
+}
+
+entity CourseStruct{
+	structName String,
+    structCode String,
+    structPcode String,
+    datatime ZonedDateTime
+}
+relationship ManyToOne{
+	CourseStruct{course} to CourseVersion,
+	CourseStruct{teacher} to BaseTeacher
+}
+
+relationship OneToMany{
+	CourseStruct{resources} to BaseResource
+}
+
+entity CourseOnClass{
+	coursePre String,
+    courseAfter String,
+    courseIng String,
+    courseTime ZonedDateTime
+}
+
+relationship ManyToOne{
+	CourseOnClass{course} to CourseVersion,
+	CourseOnClass{teacher} to BaseTeacher,
+    CourseOnClass{classInfo} to BaseClasses
+}
+
+entity CourseTalk{
+	talkTime ZonedDateTime,
+    nickName String,
+    icon String,
+    openid String,
+    memo String,
+    code String,
+    pcode String,
+    replyTo String
+}
+
+relationship ManyToOne{
+	CourseTalk{courseOnClass} to CourseOnClass,
+    CourseTalk{teacher} to BaseTeacher
+}
+
+entity ResourceComment{
+	commentTime ZonedDateTime,
+    nickName String,
+    icon String,
+    openid String,
+    memo String,
+    grade Integer
+}
+relationship ManyToOne{
+	ResourceComment{resource} to CourseResource
+}
+
+entity TeacherComment{
+	commentTime ZonedDateTime,
+    nickName String,
+    icon String,
+    openid String,
+    memo String,
+    grade Integer
+}
+relationship ManyToOne{
+	TeacherComment{teacher} to BaseTeacher
+}
+
+
+
+
+entity MajorTraning {
+	traningType String,
+    traningStatus String,
+    traningVersion Integer,
+    traningYear String,
+    createTime ZonedDateTime
+}
+
+entity TraningStruct{
+	structCode String,
+    structName String,
+    structStatus String,
+    structJSON String
+}
+
+entity TraningStructRelation{
+	relationStatus String,
+    relationDate ZonedDateTime,
+    relationYear String
+}
+
+entity TraningData{
+	structKey String,
+    structLable String,
+    structValue String
+}
+
+
+relationship ManyToOne {
+	BaseTeacher{department} to BaseDepartment,
+    BaseMajor{department} to BaseDepartment,
+    BaseMajor{teacher} to BaseTeacher,
+    BaseCourse{teacher} to BaseTeacher,
+    CourseVersion{course} to BaseCourse,
+    CourseGroupItem{course} to BaseCourse,
+    CourseGroupItem{group} to CourseGroup,
+    CourseTree{courseVersion} to CourseVersion,
+    CourseTree{preCourseVersion} to CourseVersion,
+    MajorTraning{major} to BaseMajor,
+    TraningStructRelation{traning} to MajorTraning,
+    TraningStructRelation{struct} to TraningStruct,
+    TraningData{relation} to TraningStructRelation
+}
+
+
+// Set pagination options
+paginate all with pagination
+
+// Set service options to all except few
+service all with serviceImpl
+
