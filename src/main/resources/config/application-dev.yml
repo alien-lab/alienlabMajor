@@ -26,9 +26,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/alienlabMajor?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://120.26.165.214:3306/majormanage?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: wsP@ssw0rd
         hikari:
             data-source-properties:
                 cachePrepStmts: true
