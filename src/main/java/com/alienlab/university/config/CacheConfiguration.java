@@ -40,6 +40,32 @@ public class CacheConfiguration {
             cm.createCache(com.alienlab.university.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.alienlab.university.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.alienlab.university.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseTerm.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseDepartment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseTeacher.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseMajor.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseCourse.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseVersion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseGroup.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseGroupItem.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseTree.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseMajorCourse.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseClasses.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseTeachTask.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseResourceType.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.BaseResource.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.TeacherResource.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseResource.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseStruct.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseStruct.class.getName() + ".resources", jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseOnClass.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.CourseTalk.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.ResourceComment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.TeacherComment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.MajorTraning.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.TraningStruct.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.TraningStructRelation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.alienlab.university.domain.TraningData.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

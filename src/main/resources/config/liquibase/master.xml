@@ -5,6 +5,51 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025825_added_entity_BaseTerm.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025826_added_entity_BaseDepartment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025827_added_entity_BaseTeacher.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025828_added_entity_BaseMajor.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025829_added_entity_BaseCourse.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025830_added_entity_CourseVersion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025831_added_entity_CourseGroup.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025832_added_entity_CourseGroupItem.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025833_added_entity_CourseTree.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025834_added_entity_BaseMajorCourse.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025835_added_entity_BaseClasses.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025836_added_entity_BaseTeachTask.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025837_added_entity_BaseResourceType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025838_added_entity_BaseResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025839_added_entity_TeacherResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025840_added_entity_CourseResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025841_added_entity_CourseStruct.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025842_added_entity_CourseOnClass.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025843_added_entity_CourseTalk.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025844_added_entity_ResourceComment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025845_added_entity_TeacherComment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025846_added_entity_MajorTraning.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025847_added_entity_TraningStruct.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025848_added_entity_TraningStructRelation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025849_added_entity_TraningData.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170805025827_added_entity_constraints_BaseTeacher.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025828_added_entity_constraints_BaseMajor.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025829_added_entity_constraints_BaseCourse.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025830_added_entity_constraints_CourseVersion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025832_added_entity_constraints_CourseGroupItem.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025833_added_entity_constraints_CourseTree.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025834_added_entity_constraints_BaseMajorCourse.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025835_added_entity_constraints_BaseClasses.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025836_added_entity_constraints_BaseTeachTask.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025838_added_entity_constraints_BaseResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025839_added_entity_constraints_TeacherResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025840_added_entity_constraints_CourseResource.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025841_added_entity_constraints_CourseStruct.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025842_added_entity_constraints_CourseOnClass.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025843_added_entity_constraints_CourseTalk.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025844_added_entity_constraints_ResourceComment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025845_added_entity_constraints_TeacherComment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025846_added_entity_constraints_MajorTraning.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025848_added_entity_constraints_TraningStructRelation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170805025849_added_entity_constraints_TraningData.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
