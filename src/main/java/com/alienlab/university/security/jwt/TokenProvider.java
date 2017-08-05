@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.*;
 
 @Component
-public class TokenProvider {
+public class   TokenProvider {
 
     private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
 
