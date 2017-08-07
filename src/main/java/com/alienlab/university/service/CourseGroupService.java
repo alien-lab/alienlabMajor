@@ -4,6 +4,8 @@ import com.alienlab.university.domain.CourseGroup;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Service Interface for managing CourseGroup.
  */
@@ -20,10 +22,10 @@ public interface CourseGroupService {
     /**
      *  Get all the courseGroups.
      *
-     *  @param pageable the pagination information
+     *
      *  @return the list of entities
      */
-    Page<CourseGroup> findAll(Pageable pageable);
+    List<CourseGroup> findAll();
 
     /**
      *  Get the "id" courseGroup.

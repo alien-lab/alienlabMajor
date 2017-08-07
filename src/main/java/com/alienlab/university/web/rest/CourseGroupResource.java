@@ -84,16 +84,14 @@ public class CourseGroupResource {
     /**
      * GET  /course-groups : get all the courseGroups.
      *
-     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of courseGroups in body
      */
     @GetMapping("/course-groups")
     @Timed
-    public ResponseEntity<List<CourseGroup>> getAllCourseGroups(@ApiParam Pageable pageable) {
+    public ResponseEntity<List<CourseGroup>> getAllCourseGroups() {
         log.debug("REST request to get a page of CourseGroups");
-        Page<CourseGroup> page = courseGroupService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/course-groups");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        List<CourseGroup> page = courseGroupService.findAll();
+        return new ResponseEntity<>(page,  HttpStatus.OK);
     }
 
     /**
