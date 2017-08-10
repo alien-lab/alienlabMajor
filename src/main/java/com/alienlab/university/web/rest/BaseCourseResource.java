@@ -1,17 +1,13 @@
 package com.alienlab.university.web.rest;
 
+import com.alibaba.fastjson.JSONObject;
 import com.codahale.metrics.annotation.Timed;
 import com.alienlab.university.domain.BaseCourse;
 import com.alienlab.university.service.BaseCourseService;
 import com.alienlab.university.web.rest.util.HeaderUtil;
-import com.alienlab.university.web.rest.util.PaginationUtil;
-import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +15,11 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing BaseCourse.
@@ -84,16 +83,14 @@ public class BaseCourseResource {
     /**
      * GET  /base-courses : get all the baseCourses.
      *
-     * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of baseCourses in body
      */
     @GetMapping("/base-courses")
     @Timed
-    public ResponseEntity<List<BaseCourse>> getAllBaseCourses(@ApiParam Pageable pageable) {
+    public ResponseEntity getAllBaseCourses() {
         log.debug("REST request to get a page of BaseCourses");
-        Page<BaseCourse> page = baseCourseService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/base-courses");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        List<BaseCourse> page = baseCourseService.findAll();
+        return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
     /**

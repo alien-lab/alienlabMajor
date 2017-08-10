@@ -1,5 +1,7 @@
 package com.alienlab.university.web.rest;
 
+import com.alienlab.university.domain.CourseGroup;
+import com.alienlab.university.service.CourseGroupService;
 import com.codahale.metrics.annotation.Timed;
 import com.alienlab.university.domain.CourseGroupItem;
 import com.alienlab.university.service.CourseGroupItemService;
@@ -9,6 +11,7 @@ import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -34,6 +37,9 @@ public class CourseGroupItemResource {
     private static final String ENTITY_NAME = "courseGroupItem";
 
     private final CourseGroupItemService courseGroupItemService;
+
+    @Autowired
+    private  CourseGroupService courseGroupService;
 
     public CourseGroupItemResource(CourseGroupItemService courseGroupItemService) {
         this.courseGroupItemService = courseGroupItemService;
@@ -122,5 +128,34 @@ public class CourseGroupItemResource {
         log.debug("REST request to delete CourseGroupItem : {}", id);
         courseGroupItemService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/course-group-items/getItems/{coursegroupid}")
+    @Timed
+    public ResponseEntity getCourseItemByGroupId(@PathVariable Long coursegroupid){
+        try {
+            CourseGroup courseGroup =  courseGroupService.findOne(coursegroupid);
+            List<CourseGroupItem> itemList = courseGroupItemService.findItemByGroup(courseGroup);
+            return ResponseEntity.ok().body(itemList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ExecResult er=new ExecResult(false,e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(er);
+        }
+    }
+
+    @DeleteMapping("/course-group-items/deleteItem")
+    @Timed
+    public ResponseEntity getCourseItemByGroupId(@RequestParam Long groupid , @RequestParam String courseids, @RequestParam String type){
+        try {
+            String[] list = courseids.split("&");
+            CourseGroup courseGroup =  courseGroupService.findOne(groupid);
+            List itemList = courseGroupItemService.manageItemByGroupAndCourse(courseGroup,list,type);
+            return ResponseEntity.ok().body(itemList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ExecResult er=new ExecResult(false,"课程模块管理失败！");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(er);
+        }
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 /**
  * Service Implementation for managing BaseCourse.
@@ -41,14 +43,13 @@ public class BaseCourseServiceImpl implements BaseCourseService{
     /**
      *  Get all the baseCourses.
      *
-     *  @param pageable the pagination information
      *  @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
-    public Page<BaseCourse> findAll(Pageable pageable) {
+    public List<BaseCourse> findAll() {
         log.debug("Request to get all BaseCourses");
-        return baseCourseRepository.findAll(pageable);
+        return baseCourseRepository.findAll();
     }
 
     /**
