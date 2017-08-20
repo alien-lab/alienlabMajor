@@ -1,6 +1,7 @@
 package com.alienlab.university.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -26,26 +27,33 @@ public class CourseStruct implements Serializable {
     private Long id;
 
     @Column(name = "struct_name")
+    @ApiModelProperty(value="课程结构名称")
     private String structName;
 
     @Column(name = "struct_code")
+    @ApiModelProperty(value="结构编码")
     private String structCode;
 
     @Column(name = "struct_pcode")
+    @ApiModelProperty(value="结构父级编码")
     private String structPcode;
 
     @Column(name = "datatime")
+    @ApiModelProperty(value="导入时间")
     private ZonedDateTime datatime;
 
     @OneToMany(mappedBy = "courseStruct")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @ApiModelProperty(value="课程结构的资源")
     private Set<BaseResource> resources = new HashSet<>();
 
     @ManyToOne
+    @ApiModelProperty(value="关联课程")
     private CourseVersion course;
 
     @ManyToOne
+    @ApiModelProperty(value="关联教师")
     private BaseTeacher teacher;
 
     public Long getId() {

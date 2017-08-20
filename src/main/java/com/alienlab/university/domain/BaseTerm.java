@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,18 +24,23 @@ public class BaseTerm implements Serializable {
     private Long id;
 
     @Column(name = "term_code")
+    @ApiModelProperty(value="学期号")
     private String termCode;
 
     @Column(name = "term_name")
+    @ApiModelProperty(value="学期名称")
     private String termName;
 
     @Column(name = "term_status")
+    @ApiModelProperty(value="学期状态：正常、已结束")
     private String termStatus;
 
     @Column(name = "term_startdate")
+    @ApiModelProperty(value="学期开始日期")
     private ZonedDateTime termStartdate;
 
     @Column(name = "term_enddate")
+    @ApiModelProperty(value="学期结束日期")
     private ZonedDateTime termEnddate;
 
     public Long getId() {

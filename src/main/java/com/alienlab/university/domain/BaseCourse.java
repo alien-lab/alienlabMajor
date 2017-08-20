@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,21 +23,27 @@ public class BaseCourse implements Serializable {
     private Long id;
 
     @Column(name = "course_code")
+    @ApiModelProperty(value="课程代码")
     private String courseCode;
 
     @Column(name = "course_name")
+    @ApiModelProperty(value="课程名称")
     private String courseName;
 
     @Column(name = "course_type")
+    @ApiModelProperty(value="课程类型：讲授课、实训课、任选课")
     private String courseType;
 
     @Column(name = "course_desc")
+    @ApiModelProperty(value="课程描述")
     private String courseDesc;
 
     @Column(name = "course_status")
+    @ApiModelProperty(value="课程状态：正常，停用")
     private String courseStatus;
 
     @ManyToOne
+    @ApiModelProperty(value="课程负责人")
     private BaseTeacher teacher;
 
     public Long getId() {

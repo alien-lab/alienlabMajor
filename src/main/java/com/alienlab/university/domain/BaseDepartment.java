@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,18 +23,23 @@ public class BaseDepartment implements Serializable {
     private Long id;
 
     @Column(name = "dep_code")
+    @ApiModelProperty(value="部门代码")
     private String depCode;
 
     @Column(name = "dep_name")
+    @ApiModelProperty(value="部门名称")
     private String depName;
 
     @Column(name = "dep_type")
+    @ApiModelProperty(value="部门类型：教学、行政")
     private String depType;
 
     @Column(name = "dep_shot_name")
+    @ApiModelProperty(value="部门简称")
     private String depShotName;
 
     @Column(name = "dep_sort")
+    @ApiModelProperty(value="排序")
     private Integer depSort;
 
     public Long getId() {

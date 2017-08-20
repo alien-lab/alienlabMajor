@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,18 +23,23 @@ public class BaseMajor implements Serializable {
     private Long id;
 
     @Column(name = "major_code")
+    @ApiModelProperty(value="专业代码")
     private String majorCode;
 
     @Column(name = "major_name")
+    @ApiModelProperty(value="专业名称")
     private String majorName;
 
     @Column(name = "major_status")
+    @ApiModelProperty(value="专业状态：正常、停用")
     private String majorStatus;
 
     @ManyToOne
+    @ApiModelProperty(value="所属部门")
     private BaseDepartment department;
 
     @ManyToOne
+    @ApiModelProperty(value="专业负责人")
     private BaseTeacher teacher;
 
     public Long getId() {

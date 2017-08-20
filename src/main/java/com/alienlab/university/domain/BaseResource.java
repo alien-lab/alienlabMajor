@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,27 +24,35 @@ public class BaseResource implements Serializable {
     private Long id;
 
     @Column(name = "resource_name")
+    @ApiModelProperty(value="资源名称")
     private String resourceName;
 
     @Column(name = "resource_updatetime")
+    @ApiModelProperty(value="资源上传时间")
     private ZonedDateTime resourceUpdatetime;
 
     @Column(name = "resource_url")
+    @ApiModelProperty(value="资源地址")
     private String resourceUrl;
 
     @Column(name = "resource_size")
+    @ApiModelProperty(value="资源文件大小：字节")
     private Integer resourceSize;
 
     @Column(name = "resource_md_5")
+    @ApiModelProperty(value="资源md5")
     private String resourceMD5;
 
     @Column(name = "view_count")
+    @ApiModelProperty(value="资源浏览数统计")
     private Long viewCount;
 
     @ManyToOne
+    @ApiModelProperty(value="资源类型")
     private BaseResourceType resourceType;
 
     @ManyToOne
+    @ApiModelProperty(value="关联的课程结构")
     private CourseStruct courseStruct;
 
     public Long getId() {

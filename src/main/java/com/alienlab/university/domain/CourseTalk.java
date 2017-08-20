@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,33 +24,43 @@ public class CourseTalk implements Serializable {
     private Long id;
 
     @Column(name = "talk_time")
+    @ApiModelProperty(value="课程互动时间")
     private ZonedDateTime talkTime;
 
     @Column(name = "nick_name")
+    @ApiModelProperty(value="互动者昵称")
     private String nickName;
 
     @Column(name = "icon")
+    @ApiModelProperty(value="互动者头像")
     private String icon;
 
     @Column(name = "openid")
+    @ApiModelProperty(value="互动者第三方身份id")
     private String openid;
 
     @Column(name = "memo")
+    @ApiModelProperty(value="互动内容")
     private String memo;
 
     @Column(name = "code")
+    @ApiModelProperty(value="互动编码，自动生成")
     private String code;
 
     @Column(name = "pcode")
+    @ApiModelProperty(value="互动父级编码，与编码字段形成层级关系")
     private String pcode;
 
     @Column(name = "reply_to")
+    @ApiModelProperty(value="互动回复")
     private String replyTo;
 
     @ManyToOne
+    @ApiModelProperty(value="课程课堂")
     private CourseOnClass courseOnClass;
 
     @ManyToOne
+    @ApiModelProperty(value="关联教师")
     private BaseTeacher teacher;
 
     public Long getId() {

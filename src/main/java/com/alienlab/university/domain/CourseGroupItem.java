@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,9 +23,11 @@ public class CourseGroupItem implements Serializable {
     private Long id;
 
     @ManyToOne
+    @ApiModelProperty(value="课程组内课程")
     private BaseCourse course;
 
     @ManyToOne
+    @ApiModelProperty(value="所属课程组")
     private CourseGroup group;
 
     public Long getId() {

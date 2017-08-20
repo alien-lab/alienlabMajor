@@ -1,5 +1,7 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -13,6 +15,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "base_classes")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@ApiModel(value="班级")
 public class BaseClasses implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -22,18 +25,23 @@ public class BaseClasses implements Serializable {
     private Long id;
 
     @Column(name = "term_year")
+    @ApiModelProperty(value="学年")
     private String termYear;
 
     @Column(name = "class_no")
+    @ApiModelProperty(value="班级代码")
     private String classNo;
 
     @Column(name = "class_name")
+    @ApiModelProperty(value="班级名称")
     private String className;
 
     @Column(name = "is_over")
+    @ApiModelProperty(value="是否毕业")
     private String isOver;
 
     @ManyToOne
+    @ApiModelProperty(value="所属专业")
     private BaseMajor major;
 
     public Long getId() {
