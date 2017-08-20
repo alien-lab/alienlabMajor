@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity BaseClasses.
+    -->
+    <changeSet id="20170805025835-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="major_id"
+                                 baseTableName="base_classes"
+                                 constraintName="fk_base_classes_major_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="base_major"/>
+
+    </changeSet>
+</databaseChangeLog>

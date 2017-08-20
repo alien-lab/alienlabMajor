@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity CourseTalk.
+    -->
+    <changeSet id="20170805025843-1" author="jhipster">
+        <createTable tableName="course_talk">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="talk_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nick_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="icon" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="openid" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="memo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pcode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="reply_to" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="course_on_class_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="teacher_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="course_talk" columnName="talk_time" columnDataType="datetime"/>
+        
+    </changeSet>
+</databaseChangeLog>
