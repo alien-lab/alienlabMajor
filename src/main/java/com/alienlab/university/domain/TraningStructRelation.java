@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,18 +24,23 @@ public class TraningStructRelation implements Serializable {
     private Long id;
 
     @Column(name = "relation_status")
+    @ApiModelProperty(value="关联状态：正常，停用")
     private String relationStatus;
 
     @Column(name = "relation_date")
+    @ApiModelProperty(value="关联日期")
     private ZonedDateTime relationDate;
 
     @Column(name = "relation_year")
+    @ApiModelProperty(value="关联年份")
     private String relationYear;
 
     @ManyToOne
+    @ApiModelProperty(value="关联人才培养方案")
     private MajorTraning traning;
 
     @ManyToOne
+    @ApiModelProperty(value="关联的结构体")
     private TraningStruct struct;
 
     public Long getId() {

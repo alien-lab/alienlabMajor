@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,24 +24,31 @@ public class TeacherComment implements Serializable {
     private Long id;
 
     @Column(name = "comment_time")
+    @ApiModelProperty(value="评论时间")
     private ZonedDateTime commentTime;
 
     @Column(name = "nick_name")
+    @ApiModelProperty(value="昵称")
     private String nickName;
 
     @Column(name = "icon")
+    @ApiModelProperty(value="头像")
     private String icon;
 
     @Column(name = "openid")
+    @ApiModelProperty(value="关联专业")
     private String openid;
 
     @Column(name = "memo")
+    @ApiModelProperty(value="评论内容")
     private String memo;
 
     @Column(name = "grade")
+    @ApiModelProperty(value="评论内容")
     private Integer grade;
 
     @ManyToOne
+    @ApiModelProperty(value="关联教师")
     private BaseTeacher teacher;
 
     public Long getId() {

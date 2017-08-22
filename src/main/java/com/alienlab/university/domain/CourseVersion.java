@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,24 +23,31 @@ public class CourseVersion implements Serializable {
     private Long id;
 
     @Column(name = "course_count")
+    @ApiModelProperty(value="总课时")
     private Integer courseCount;
 
     @Column(name = "course_do_count")
+    @ApiModelProperty(value="实训课时")
     private Integer courseDoCount;
 
     @Column(name = "course_learn_count")
+    @ApiModelProperty(value="理论课时")
     private Integer courseLearnCount;
 
     @Column(name = "course_grade")
+    @ApiModelProperty(value="总学分")
     private Float courseGrade;
 
     @Column(name = "course_desc")
+    @ApiModelProperty(value="课程描述")
     private String courseDesc;
 
     @Column(name = "course_book")
+    @ApiModelProperty(value="教材信息")
     private String courseBook;
 
     @Column(name = "course_status")
+    @ApiModelProperty(value="课程状态")
     private String courseStatus;
 
     @ManyToOne

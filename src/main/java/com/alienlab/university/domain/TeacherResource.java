@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,18 +24,23 @@ public class TeacherResource implements Serializable {
     private Long id;
 
     @Column(name = "is_private")
+    @ApiModelProperty(value="是否私有资源")
     private String isPrivate;
 
     @Column(name = "add_time")
+    @ApiModelProperty(value="上传时间")
     private ZonedDateTime addTime;
 
     @Column(name = "title")
+    @ApiModelProperty(value="资源标题")
     private String title;
 
     @ManyToOne
+    @ApiModelProperty(value="关联教师")
     private BaseTeacher teacher;
 
     @ManyToOne
+    @ApiModelProperty(value="关联资源")
     private BaseResource resource;
 
     public Long getId() {

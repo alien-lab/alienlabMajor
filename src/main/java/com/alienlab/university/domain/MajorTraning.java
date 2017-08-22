@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,21 +24,27 @@ public class MajorTraning implements Serializable {
     private Long id;
 
     @Column(name = "traning_type")
+    @ApiModelProperty(value="人才培养方案类型：五年制、三年制、高中、中职")
     private String traningType;
 
     @Column(name = "traning_status")
+    @ApiModelProperty(value="人才培养方案状态")
     private String traningStatus;
 
     @Column(name = "traning_version")
+    @ApiModelProperty(value="版本号")
     private Integer traningVersion;
 
     @Column(name = "traning_year")
+    @ApiModelProperty(value="年份")
     private String traningYear;
 
     @Column(name = "create_time")
+    @ApiModelProperty(value="创建时间")
     private ZonedDateTime createTime;
 
     @ManyToOne
+    @ApiModelProperty(value="关联专业")
     private BaseMajor major;
 
     public Long getId() {

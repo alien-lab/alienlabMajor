@@ -1,5 +1,6 @@
 package com.alienlab.university.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,12 +23,15 @@ public class CourseTree implements Serializable {
     private Long id;
 
     @Column(name = "tree_desc")
+    @ApiModelProperty(value="课程树关系描述")
     private String treeDesc;
 
     @ManyToOne
+    @ApiModelProperty(value="关联课程")
     private CourseVersion courseVersion;
 
     @ManyToOne
+    @ApiModelProperty(value="前序课程")
     private CourseVersion preCourseVersion;
 
     public Long getId() {

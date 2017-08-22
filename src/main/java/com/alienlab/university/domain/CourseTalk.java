@@ -60,7 +60,7 @@ public class CourseTalk implements Serializable {
     private CourseOnClass courseOnClass;
 
     @ManyToOne
-    @ApiModelProperty(value="关联教师")
+    @ApiModelProperty(value="关联教师(该课程的教师)")
     private BaseTeacher teacher;
 
     public Long getId() {
