@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * not an ignored comment
  */
-@ApiModel(description = "not an ignored comment")
+@ApiModel(value = "课程组")
 @Entity
 @Table(name = "course_group")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
